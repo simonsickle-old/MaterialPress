@@ -1,0 +1,43 @@
+/*
+Theme Name: MaterialPress
+Theme URI: http://simonsickle.com/mp
+Author: Simon Sickle
+Author URI: http://simonsickle.com/
+Description: A versatile and responsive Bootstrap/Android Material theme
+Version: 0.1
+License: GNU General Public License v3
+License URI: http://www.gnu.org/licenses/gpl.html
+Tags:
+Text Domain: MaterialPress
+*/
+
+/* The bootstrap.css, material.css, and all JS files are auto-enqueued in functions.php */
+
+/* Start Widgets */
+.widget {
+	border: 0;
+	border-radius: 2px;
+	box-shadow: 0 1px 6px rgba(0,0,0,.12),0 1px 6px rgba(0,0,0,.12);
+	border-color: #ddd;
+	padding: 15px;
+	margin-bottom: 20px;
+	background-color: #fff;
+}
+
+.widget h3 {
+	padding: 10px 15px;
+	background-color: #ececec;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	box-sizing: border-box;
+}
+/* End Widgets */
+
+/* Start WP Action Bar (when logged in) */
+body.logged-in .navbar-fixed-top{ top: 32px !important; }
+
+@media (max-width: 782px) {
+	body.logged-in .navbar-fixed-top{ top: 46px !important; }
+}
+/* End WP Action Bar */
