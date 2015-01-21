@@ -1,9 +1,9 @@
 {
-  "name": "roots",
-  "version": "7.0.3",
-  "homepage": "http://roots.io",
+  "name": "MaterialPress",
+  "version": "2.0.0",
+  "homepage": "https://github.com/SimonSickle/MaterialPress",
   "authors": [
-    "Ben Word <ben@benword.com>"
+    "Simon Sickle <simon@simonsickle.com>"
   ],
   "license": "MIT",
   "private": true,
@@ -17,6 +17,6 @@
     "jquery": "1.11.1",
     "bootstrap": "3.3.1",
     "respond": "1.4.2",
-    "FezVrasta/bootstrap-material-design": "master"
+    "bootstrap-material-design": "master"
   }
 }

@@ -1,14 +1,14 @@
 {
-  "name": "roots",
-  "version": "7.0.3",
-  "author": "Ben Word <ben@benword.com>",
-  "homepage": "http://roots.io",
+  "name": "MaterialPress",
+  "version": "2.0.0",
+  "author": "Simon Sickle <simon@simonsickle.com>",
+  "homepage": "https://simonsickle.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/roots/roots.git"
+    "url": "git://github.com/SimonSickle/MaterialPress.git"
   },
   "bugs": {
-    "url": "https://github.com/roots/roots/issues"
+    "url": "https://github.com/SimonSickle/MaterialPress/issues"
   },
   "licenses": [
     {
