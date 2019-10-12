@@ -10,13 +10,13 @@ function register_bootstrap_custom_menu() {
 
 class bootstrap_custom_menu extends WP_Widget {
 
-    function bootstrap_custom_menu() {
+    function __construct() {
 
         $widget_ops = array( 'classname' => 'bootstrapwidgetmenu', 'description' => __('A custom menu widget that uses the wp_bootstrap_navwalker', 'devdmbootstrap3'));
 
         $control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'bootstrap-widget-menu');
 
-        $this->WP_Widget( 'bootstrap-widget-menu', __('Boot Strap Menu', 'devdmbootstrap3'), $widget_ops, $control_ops);
+        parent::__construct( 'bootstrap-widget-menu', __('Boot Strap Menu', 'devdmbootstrap3'), $widget_ops, $control_ops);
     }
 
     //what our widget instance looks like and does with our arguments
@@ -41,7 +41,7 @@ class bootstrap_custom_menu extends WP_Widget {
                 'walker' => new wp_bootstrap_navwalker())
         );
 
-            echo $after_widget;
+        echo $after_widget;
     }
 
     //update the widget instance with our new params
@@ -59,38 +59,38 @@ class bootstrap_custom_menu extends WP_Widget {
     //show form info for customizing
     function form( $instance ) {
 
-     $defaults = array ( 'title' => __('Menu', 'devdmbootstrap3'), 'menuname' => __('Menu Name', 'devdmbootstrap3'), 'menutype' => 'nav-tabs');
-     $instance = wp_parse_args( (array) $instance, $defaults );
-    ?>
-    <p>
-        <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title','devdmbootstrap3'); ?>:</label>
-        <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
-    </p>
+        $defaults = array ( 'title' => __('Menu', 'devdmbootstrap3'), 'menuname' => __('Menu Name', 'devdmbootstrap3'), 'menutype' => 'nav-tabs');
+        $instance = wp_parse_args( (array) $instance, $defaults );
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title','devdmbootstrap3'); ?>:</label>
+            <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
+        </p>
 
-     <p>
+        <p>
             <label for="<?php echo $this->get_field_id( 'menuname' ); ?>"><?php _e('Menu','devdmbootstrap3'); ?>:</label>
             <select id="<?php echo $this->get_field_id( 'menuname' ); ?>" name="<?php echo $this->get_field_name( 'menuname' ); ?>" style="width:100%;" type="text">
                 <?php
 
-                    $menus = get_terms( 'nav_menu', array( 'hide_empty' => false ) );
+                $menus = get_terms( 'nav_menu', array( 'hide_empty' => false ) );
 
-                        echo "<option value=''>". __('Default All Pages','devdmbootstrap3') ."</option>";
-                             foreach ( $menus as $menu ) {
-                                     echo "<option value='" . $menu->name . "' ". selected($instance['menuname'], $menu->name).">" . $menu->name . "</option>";
-                             }
+                echo "<option value=''>". __('Default All Pages','devdmbootstrap3') ."</option>";
+                foreach ( $menus as $menu ) {
+                    echo "<option value='" . $menu->name . "' ". selected($instance['menuname'], $menu->name).">" . $menu->name . "</option>";
+                }
 
                 ?>
             </select>
-     </p>
+        </p>
 
         <p>
             <label for="<?php echo $this->get_field_id( 'menutype' ); ?>"><?php _e('Menu Type','devdmbootstrap3'); ?>:</label>
             <select id="<?php echo $this->get_field_id( 'menutype' ); ?>" name="<?php echo $this->get_field_name( 'menutype' ); ?>" style="width:100%;" type="text">
                 <?php
 
-                    echo "<option value='nav-tabs' ". selected($instance['menutype'], 'nav-tabs').">Tabs</option>";
-                    echo "<option value='nav-pills' ". selected($instance['menutype'], 'nav-pills').">Pills</option>";
-                    echo "<option value='nav-list' ". selected($instance['menutype'], 'nav-list').">List</option>";
+                echo "<option value='nav-tabs' ". selected($instance['menutype'], 'nav-tabs').">Tabs</option>";
+                echo "<option value='nav-pills' ". selected($instance['menutype'], 'nav-pills').">Pills</option>";
+                echo "<option value='nav-list' ". selected($instance['menutype'], 'nav-list').">List</option>";
 
                 ?>
             </select>
@@ -98,9 +98,7 @@ class bootstrap_custom_menu extends WP_Widget {
 
 
 
-    <?php
+        <?php
 
     }
 }
-
-
