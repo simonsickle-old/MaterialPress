@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+global $wp_query;
+get_header(); ?>
 
 <div class="container body-content">
 
@@ -9,9 +11,9 @@
     </div>
 
     <div class="row">
-    
+
     <?php get_sidebar( 'left' );
-	
+
 	    $post_classes = array("well");
             $left_sidebar_size = 0;
             $right_sidebar_size = 0;
@@ -95,7 +97,7 @@
                     <?php get_404_template(); ?>
 
             <?php endif; ?>
-			
+
 			</div>
 
    <?php //get the right sidebar ?>
